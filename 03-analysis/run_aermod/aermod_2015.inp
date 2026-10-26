@@ -1,0 +1,38 @@
+CO STARTING
+   TITLEONE  Modelacion Dispersion PM ZMVM - Anio 2015 (285 Fuentes AP-42 -> 3172 Escuelas)
+   TITLETWO  Evaluacion Exposicion Escolar con Terreno SRTM 30m y FLAGPOLE 1.5m
+   MODELOPT  DFAULT CONC
+   AVERTIME  24 ANNUAL
+   POLLUTID  PM25
+   FLAGPOLE  1.5
+   RUNORNOT  RUN
+   ERRORFIL  errors_2015.err
+CO FINISHED
+
+SO STARTING
+   INCLUDED  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermap_out/sources_2015.so
+SO FINISHED
+
+RE STARTING
+   INCLUDED  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermap_out/receptores_elevados.rou
+RE FINISHED
+
+ME STARTING
+   SURFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2015.sfc
+   PROFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2015.pfl
+   SURFDATA  766793  2015  AICM_CDMX
+   UAIRDATA  76679   2015  AICM_CDMX
+   SITEDATA  00000   2015  NONE
+   PROFBASE  2230.0  METERS
+ME FINISHED
+
+OU STARTING
+   RECTABLE  ALLAVE  FIRST
+   PLOTFILE  ANNUAL  ALL  plot_annual_all_2015.plt
+   PLOTFILE  ANNUAL  TURBINA_  plot_annual_turb_2015.plt
+   PLOTFILE  ANNUAL  FUNDICIO  plot_annual_fund_2015.plt
+   PLOTFILE  ANNUAL  HORNO_VI  plot_annual_vidr_2015.plt
+   PLOTFILE  ANNUAL  SECADO_Q  plot_annual_quim_2015.plt
+   PLOTFILE  ANNUAL  CALDERA_  plot_annual_cald_2015.plt
+   SUMMFILE  summary_2015.sum
+OU FINISHED

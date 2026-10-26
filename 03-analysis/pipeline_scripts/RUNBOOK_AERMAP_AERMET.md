@@ -69,3 +69,15 @@ Este documento registra las reglas técnicas, decisiones metodológicas y correc
   * `catalogo_285_fuentes_aermod_ap42.csv`
   * `fuentes_285_filtradas.sou`
   * `sources_2015.so` a `sources_2019.so` (con bloques `LOCATION`, `SRCPARAM` y `SRCGROUP` por rama tecnológica y `ALL`).
+
+---
+
+## 7. Ensamblaje y Validación de Sintaxis de AERMOD (Commit 2)
+* **Script generador de control:** `03-analysis/pipeline_scripts/build_aermod_inp.py`
+* **Archivos `.inp` generados:** `aermod_2015.inp` al `aermod_2019.inp` ubicados en `03-analysis/run_aermod/`.
+* **Estructura de control validada:**
+  * Bloque `CO`: `FLAGPOLE 1.5` (zona de respiración humana de 1.5 m sobre el terreno) y validación de sintaxis con `RUNORNOT`.
+  * Bloque `SO`: Inclusión dinámica de los archivos anuales `sources_YYYY.so` (N=285 fuentes con elevación y parámetros AP-42).
+  * Bloque `RE`: Inclusión de `receptores_elevados.rou` (N=3,172 inmuebles escolares).
+  * Bloque `ME`: Datos meteorológicos superficiales y de perfil de la estación AICM (`76679`) procesados por AERMET (2015–2019).
+* **Resultado de ejecución de prueba:** `*** AERMOD Finishes Successfully ***` con los binarios nativos de macOS (`aermod.x`).
