@@ -2,10 +2,11 @@
 # .gitignore para Tesina: AERMOD + Python
 # ==========================================
 
-# 1. Archivos de sistema macOS
+# 1. Archivos de sistema macOS y Nube
 .DS_Store
 .AppleDouble
 .LSOverride
+.tmp.driveupload/
 
 # 2. Python y Jupyter
 __pycache__/
@@ -16,27 +17,40 @@ __pycache__/
 venv/
 env/
 
-# 3. Binarios y código objeto de Fortran/C
+# 3. Directorios de Datos y Tutoriales Masivos (NUNCA subir a Git)
+02-data/
+03-analysis/tutorial_wisconsin/
+03-analysis/run_aermet_*/
+01-literature-tesina/*.pdf
+
+# 4. Formatos de datos espaciales y tabulares pesados
+*.csv
+*.xlsx
+*.parquet
+*.shp
+*.shx
+*.dbf
+*.tif
+
+# 5. Binarios, compiladores y código fuente de Fortran
 *.x
 *.o
 *.exe
 *.dll
-03-analysis/aermod_bin/src_aermod/
+*.zip
+*.mod
+03-analysis/aermod_bin/src_*/
 
-# 4. Outputs gigantes y temporales de AERMOD
+# 6. Outputs gigantes de AERMAP / AERMET / AERMOD
 *.out
 *.msg
 *.plt
 *.log
 *.rou
+*.sou
+*.sfc
+*.pfl
 *.sum
-
-# 5. Datos masivos (Nunca subir a Git, solo código)
-# NOTA: Los datos limpios se respaldan en Google Drive, no en Git.
-02-data/raw/
-02-data/processed/*.csv
-02-data/processed/*.parquet
-02-data/processed/*.shp
-02-data/processed/*.shx
-02-data/processed/*.dbf
-
+*.ext
+*.qa
+*.rpt

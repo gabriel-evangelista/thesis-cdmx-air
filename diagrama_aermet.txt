@@ -1,0 +1,15 @@
+[766793-99999-2017 (ISHD)] ──> Stage 1 (Surface)   ──> sfc_2017.ext
+                                                            │
+[76679_2017.fsl (FSL)]    ──> Stage 1 (Upper Air) ──> ua_2017.ext
+                                                            │
+                                                            ▼
+                                                     Stage 2 (Merge)
+                                                            │
+                                                            ▼
+                                                      merged_2017.mrg
+                                                            │
+[Parámetros AERSURFACE]    ────────────────────────> Stage 3 (Boundary Layer)
+(Albedo, Bowen, z0)                                         │
+                                                            ▼
+                                                   aer_2017.SFC  (Superficie horaria)
+                                                   aer_2017.PFL  (Perfil vertical horario)
