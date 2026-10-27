@@ -54,3 +54,5 @@ env/
 *.ext
 *.qa
 *.rpt
+*.geojson
+*.err

@@ -81,3 +81,17 @@ Este documento registra las reglas técnicas, decisiones metodológicas y correc
   * Bloque `RE`: Inclusión de `receptores_elevados.rou` (N=3,172 inmuebles escolares).
   * Bloque `ME`: Datos meteorológicos superficiales y de perfil de la estación AICM (`76679`) procesados por AERMET (2015–2019).
 * **Resultado de ejecución de prueba:** `*** AERMOD Finishes Successfully ***` con los binarios nativos de macOS (`aermod.x`).
+
+---
+
+## 8. Ejecución del Panel Base AERMOD (2015–2019, Emisión Constante 24/7) y Validación Preliminar (Commit 3)
+* **Tag de Checkpoint:** `v2.0-aermod-base-complete`
+* **Estado de la corrida multianual:**
+  * Ejecución completa y verificada de los 5 años (`2015`, `2016`, `2017`, `2018`, `2019`) con tasa de emisión anual constante ($Q_s$ en $\text{g/s}$ distribuido uniformemente en 8,760 / 8,784 horas).
+  * Tiempo medio de ejecución: ~1h 35m por año (~99% CPU single-core en Apple Silicon M1/M2).
+  * Salidas generadas en `03-analysis/run_aermod/`: 30 archivos de ploteo espacial (`plot_annual_<grupo>_<anio>.plt`, 335 KB c/u, N=3,172 receptores escolares íntegros) y 5 sumarios anuales (`aermod_<anio>.sum`, 125 KB c/u).
+* **Validación empírica preliminar (Corte transversal 2017, `plot_zmvm_2017_v2.ipynb`):**
+  * Muestra analítica: $N = 2,384$ secundarias públicas en la ZMVM ($X_{\text{UTM}} \ge 460\text{ km}$) enlazadas con PLANEA 2017 y grupo de referencia oficial de "escuelas parecidas" (SEP/INEE).
+  * Gradiente de exposición industrial ($\text{PM}_{2.5}$): Razón $Q_5 / Q_1 = 7.49\times$ ($Q_1 = 0.0185\ \mu\text{g/m}^3$ vs. $Q_5 = 0.1385\ \mu\text{g/m}^3$).
+  * Gradiente de desempeño relativo (Ventaja neta frente a escuelas parecidas en Nivel I): Deterioro neto entre $Q_1$ y $Q_5$ de $-3.08\text{ pp}$ en Matemáticas ($+1.57\text{ pp}$ a $-1.52\text{ pp}$) y $-2.32\text{ pp}$ en Lenguaje y Comunicación ($+1.15\text{ pp}$ a $-1.17\text{ pp}$).
+* **Siguiente iteración (Fase `EMISFACT`):** Incorporación de factores horarios de emisión por perfil operativo tecnológico y demanda eléctrica horaria.
