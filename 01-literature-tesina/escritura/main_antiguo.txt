@@ -1,0 +1,249 @@
+\documentclass[12pt]{report}
+
+\usepackage{ifpdf}
+\newif\ifpdf\ifx\pdfoutput\undefined\pdffalse\else\pdfoutput=1\pdftrue\fi
+\newcommand{\pdfgraphics}{\ifpdf\DeclareGraphicsExtensions{.pdf,.jpg}\fi} 
+
+\usepackage[spanish,mexico]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[dvipsnames,pdftex]{color}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[sort&compress,square,comma,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    pdftitle={Tesis Maestr\'ia CDPP},
+    pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{0in}
+\setlength{\voffset}{-0.5in}
+\setlength{\hoffset}{0.5in}
+\setlength{\textheight}{9in}
+\setlength{\topskip}{0in}
+\setlength{\parskip}{2ex}
+\renewcommand{\baselinestretch}{1}
+
+\linespread{1.5}
+\setlength{\marginparwidth}{2cm}
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+
+\begin{document}
+
+\setcounter{page}{1}
+\pagenumbering{roman}
+\thispagestyle{empty}
+
+% Preliminares
+\include{pre_chapters/portada.tex}
+\newpage
+\thispagestyle{empty}
+\include{pre_chapters/hoja_firmas.tex}
+\newpage
+\include{pre_chapters/resumen.tex}
+\newpage
+\include{pre_chapters/agradecimientos.tex}
+\newpage
+
+
+% Índices
+\tableofcontents
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{\'Indice de Tablas}
+\listoffigures
+\addcontentsline{toc}{chapter}{\'Indice de Figuras}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Capítulos principales
+\chapter{Introducci\'on}
+
+\section{Planteamiento del problema}
+
+Los desafíos de la justicia social en México son, como en muchos otros países, ``wicked problems''; problemas públicos intrínsecamente interconectados y difíciles de resolver de forma aislada. Desafortunadamente, es común que algunas iniciativas sociales bien intencionadas operen en silos, limitando su impacto por la falta de conexión, confianza y soporte mutuo. Para superar esta fragmentación y fomentar una acción colectiva efectiva, es imperativo crear, visibilizar y fortalecer las redes de impacto \cite{Robke2024, Cadena2019}.
+
+Una red de impacto es una red social, creada deliberadamente por seres humanos para impulsar cambios socio-ambientales positivos. Como se muestra en la Tabla~\ref{tab:hier-net-comp}, una red de impacto plantea un modelo de coordinación no jerárquica, resiliente, adaptable y con el potencial de crear impacto sistémico \cite{Ehrlichman2021}.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Comparación entre Jerarquías y Redes de Impacto}
+\label{tab:hier-net-comp}
+\begin{tabular}{l p{5.5cm} p{5.5cm}}
+\toprule
+\textbf{Característica} & \textbf{Jerarquías (Hierarchies)} & \textbf{Redes (Networks)} \\
+\midrule
+\textbf{Estructura} & 
+Rígida, formal y organizada de arriba hacia abajo (top-down). & 
+Flexible, descentralizada y emergente. Se auto-organiza según las necesidades. \cite{Ehrlichman2021, Converge2022} \\
+\addlinespace
+
+\textbf{Toma de Decisiones} & 
+Centralizada. Las decisiones se toman en la cima y se comunican hacia abajo. & 
+Distribuida. Las decisiones se toman en diferentes puntos de la red, a menudo por quienes están más cerca del problema. \cite{Ehrlichman2021} \\
+\addlinespace
+
+\textbf{Liderazgo} & 
+Basado en el "mando y control". La autoridad reside en el puesto formal. & 
+Colaborativo y facilitador. El liderazgo es un rol que puede rotar y se enfoca en habilitar a otros. \cite{NexusGlobal2022} \\
+\addlinespace
+
+\textbf{Flujo de Información} & 
+Controlado. La información fluye a través de canales formales y predefinidos. & 
+Abierto y rápido. La información fluye libremente en múltiples direcciones para quien la necesite. \cite{Ehrlichman2021} \\
+\addlinespace
+
+\textbf{Objetivo Principal} & 
+Eficiencia, predictibilidad y control de los resultados. & 
+Resiliencia, adaptabilidad y la creación de un impacto sistémico que un solo actor no podría lograr. \cite{Converge2022} \\
+\addlinespace
+
+\textbf{Fuente de Poder} & 
+La autoridad formal del cargo que se ocupa. & 
+La confianza, la reputación y la capacidad de contribuir y conectar a otros. \cite{Ehrlichman2021} \\
+\addlinespace
+
+\textbf{Adaptabilidad} & 
+Baja. Son lentas para responder a cambios inesperados en el entorno. & 
+Alta. Pueden reconfigurarse y adaptarse rápidamente a nuevos desafíos y oportunidades. \cite{Converge2022} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Existen diversos ejemplos de redes de impacto exitosas que demuestran cómo la colaboración entre múltiples actores puede abordar problemas sistémicos complejos. Por ejemplo, la California Landscape Stewardship Network, la African Rural and Agricultural Credit Association (AFRACA), la Justice in Motion Defender Network y la Re-Amp Network han tenido éxito en coordinar a cientos de actores sociales para enfrentar desafíos como la conservación natural y la protección de los derechos de la población migrante, por mencionar algunos \cite{Mair2021,Ehrlichman2021}.
+
+A pesar de que una red de impacto no representa una solución completa ante un ``problema complejo'', sí permite a sus participantes comprometerse con un propósito a lo largo del tiempo, reunir a las entidades correctas y aprender mediante experiencias compartidas. Por lo tanto, la identificación y articulación de dichas redes es una iniciativa relevante para afrontar problemas públicos. \textbf{La presente propuesta respalda esta intención mediante el desarrollo de un grafo de red para mapear a los actores involucrados en activismo socio-ambiental en México.}
+
+Este análisis beneficiará principalmente a entidades activistas (individuos, colectivos pequeños, organizaciones) que buscan expandir su impacto y encontrar colaboradores. Será especialmente útil para jóvenes que desean incursionar en el activismo y se beneficiarían de conocer el ecosistema de su subcausa o región rápidamente. Potencialmente, también podría ser útil para organizaciones que ya gestionan sus propias redes —desde gobiernos locales hasta iniciativas filantrópicas. Con esta idea en mente, se propone a beVisioneers —the Mercedes-Benz Fellowship— como cliente principal del producto de esta investigación \cite{MercedesBenzBevisioneers}. Al tratarse de una organización que impulsará a cerca de 10,000 jóvenes activistas socio-ambientales en los próximos 10 años, incluyendo decenas de jóvenes mexicanos que ya forman parte del programa, beVisioneers tiene capacidad financiera y potencial interés en una herramienta que le permita a sus usuarios responder la pregunta: \textbf{¿Con quién puedo hacer equipo para tener más impacto?} Responderla es especialmente relevante para las entidades primerizas en el activismo, que se sienten aisladas o faltas de recursos para generar impacto \cite{Portes2021}.
+
+\section{Hip\'otesis y objetivos}
+
+\textbf{Hipótesis y Objetivo:} Analizar los patrones de conexión por región de operación, por causa socio-ambiental y por fuente de financiamiento para individuos, agrupaciones o instituciones que promuevan la justicia socio-ambiental en México permitirá visibilizar las conexiones existentes y sugerir nuevas posibilidades de colaboración.
+
+\chapter{Datos y tratamiento}
+
+\section{Fuentes y métodos de recopilación}
+Aunque no existen grandes bases de datos públicas sobre las entidades de activismo socio-ambiental en México, se propone generar estos datos mediante dos medios:
+
+\begin{enumerate}
+    \item \textbf{Método primario:} Levantamiento de datos mediante un formulario web. Se busca recabar información sobre nombres y tipos de las entidades, datos de contacto, regiones geográficas de operación, causas socio-ambientales y otras entidades con las que se ha colaborado en los últimos 5 años. Se realizará una prueba piloto con la ayuda de la red de líderes sociales en México del Global Leadership Institute.
+
+    \todo[inline, color=green!20]{Nota de borrador: Se enviará un formulario web con este \href{https://docs.google.com/document/d/1NBW29W4bB1E1Jt-1KKXK7ITC2OwpJZxw1RbiSlr7oFo/edit?usp=sharing}{borrador} a casi 200 organizaciones mexicanas para realizar análisis preliminares y aprender cómo mejorar el levantamiento de datos con el cliente final.}
+    
+    \item \textbf{Método complementario:} Generación de una base de datos mediante agentes comerciales de inteligencia artificial. Dichos agentes han sido entrenados para obtener información similar a la recabada en el formulario web.
+    
+    \todo[inline, color=red!40]{Nota: Para disminuir el riesgo de que los agentes de IA inventen datos, estos fueron entrenados para entregar \href{https://docs.google.com/spreadsheets/d/1Bnv9g34oiArNj-f3mjnDr6tRKq6gqY4osVlgGR5n4L4/edit?usp=sharing}{fuentes verificables} que permitan confirmar la existencia de la entidad.}
+\end{enumerate}
+
+\section{Tratamiento y limpieza de datos}
+El plan para la limpieza de datos incluye los siguientes pasos:
+\begin{enumerate}
+    \item Imputación para los muchos valores nulos o incompletos que se espera resulten de las respuestas al formulario. Probablemente se crearán variables dummy para indicar si los actores pertenecen a determinado grupo geográfico o de subcausa ambiental.
+    \item Estandarización de nombres de organizaciones, causas y ubicaciones geográficas, para evitar duplicados y asociar nombres que signifiquen lo mismo.
+    \item Preprocesamiento de información geográfica para reflejar: a) vecindad espacial, al asignar un par de coordenadas aproximadas a la capital de cada estado de operación de los actores, y b) similitud ecosistémica, al asignar una o varias categorías de bioma a los actores según su región de operación.     
+\end{enumerate}
+
+
+\section{An\'alisis Exploratorio}
+Para las primeras visualizaciones se planea:
+\begin{enumerate}
+    \item Histogramas por tipos de actores, causas socio-ambientales o número de colaboraciones. 
+    \item Un mapa de México por estados, coloreado según el número de actores —normalizado por número de habitantes o superficie—, tipo o causa predominante.
+\end{enumerate}
+
+\chapter{Modelado}
+\section{Modelo propuesto y supuestos}
+El output del modelo es un grafo no direccionado, con nodos como entidades de activismo y aristas como las conexiones por relación entre entidades. Los nodos tienen atributos como el tipo de entidad (individuo, institución, etc.), causa socio-ambiental (conservación natural, justicia climática, etc.), y actividades principales (incidencia política, organización comunitaria, educación, etc.). En contraste, las aristas no tienen pesos ni otros atributos \cite{Newman2018}. Cabe mencionar que no se considera un componente temporal para el grafo, pues un "snapshot" que represente la configuración de la red de los últimos ~5 años resulta suficiente.
+
+Además de visibilizar las conexiones existentes, contar con este grafo permite medir indicadores para cada nodo —como la centralidad (por grado, cercanía y *betweenness*)— y para toda la red —como la distancia promedio y la robustez \cite{RomeroSNA}. Particularmente, para este proyecto, el grafo se utilizará como input para algoritmos de predicción de enlaces entre pares de nodos A y B.
+
+Debido a su mayor explicabilidad y menor consumo de recursos computacionales, se utilizarán algoritmos basados en similaridad entre nodos en lugar de modelos probabilísticos o de máxima verosimilitud, como el índice de Jaccard y el de Adamic-Adar \cite{Kumar2020}. Adicionalmente, se aprovecharán los atributos de los nodos para formar ``comunidades'' dentro del grafo e implementar medidas de predicción de enlaces como Community Common Neighbors (Ec.~\eqref{eq:cn_community}) y Community Resource Allocation (Ec.~\eqref{eq:ra_community}). Estas métricas se implementarán en Python mediante los comandos \texttt{cn\_soundarajan\_hopcroft(A,B)} y \texttt{ra\_soundarajan\_hopcroft(A,B)}. Ambas medidas se calculan sumando las contribuciones de los vecinos que dos nodos tienen en común, pero únicamente si dichos vecinos pertenecen a la misma comunidad que los nodos que se están analizando \cite{RomeroSNA}.
+
+\begin{equation}
+    \label{eq:cn_community}
+    S_{CN}(A, B) = \sum_{w \in \Gamma(A) \cap \Gamma(B)} \delta(f(A), f(w))
+\end{equation}
+
+\begin{equation}
+    \label{eq:ra_community}
+    S_{RA}(A, B) = \sum_{w \in \Gamma(A) \cap \Gamma(B)} \frac{\delta(f(A), f(w))}{|\Gamma(w)|}
+\end{equation}
+
+Dado que el escenario de uso más común de este grafo será que un nuevo usuario pueda visualizar la red de activismo de su interés, ingresar sus datos y recibir recomendaciones de colaboración, se proponen dos escenarios de uso.
+
+En el primer escenario, el usuario ingresa sus datos, de manera similar a cómo lo haría en el formulario web, y crea un nodo temporal que le permite generar sugerencias de colaboración. Dichas sugerencias son simplemente los *scores* más altos de determinadas métricas. Por ejemplo, si el usuario busca colaboradores por subcausa socio-ambiental, se le mostrarán los n mejores puntajes de Community Resource Allocation, donde la comunidad está limitada a la causa socio-ambiental del usuario. 
+
+En el segundo escenario, se utiliza un método supervisado de aprendizaje automático en el que un usuario de alto nivel —probablemente el administrador de la red— estudia cuáles predicciones de colaboración son las más factibles para promoverlas dentro de su red. Tal como se ilustra en la Tabla~\ref{tab:data_structure_example_narrow}, en este escenario se utiliza una Máquina de Soporte Vectorial (SVM) que utiliza las métricas de predicción de enlaces de cada par de nodos como *features* de su modelo para generar etiquetas de enlace.
+
+\begin{table}[htbp]
+\centering
+\caption{Ejemplo de la Estructura de Datos para el Modelo de Clasificación.}
+\label{tab:data_structure_example_narrow}
+
+% Reducimos el espacio entre columnas (el valor por defecto es 6pt)
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{l c c c c l}
+\toprule
+\textbf{Par de Nodos} & 
+\specialcell{\textbf{Score}\\\textbf{Jaccard}} & 
+\specialcell{\textbf{Score CN}\\\textbf{Comunidad}} & 
+\specialcell{\textbf{Misma}\\\textbf{Región}} & 
+\textbf{\dots} & 
+\specialcell{\textbf{Enlace}\\\textbf{(Target)}} \\
+\midrule
+(Nodo A, Nodo B) & 0.45 & 5  & 1 & \dots & 1 (Sí) \\
+(Nodo A, Nodo C) & 0.12 & 0  & 1 & \dots & 0 (No) \\
+(Nodo B, Nodo C) & 0.05 & 1  & 0 & \dots & 0 (No) \\
+(Nodo D, Nodo E) & 0.78 & 12 & 1 & \dots & 1 (Sí) \\
+\bottomrule
+\end{tabular}
+
+% Restauramos el valor por defecto para el resto del documento (opcional)
+\setlength{\tabcolsep}{6pt}
+\end{table}
+
+\section{Validaci\'on y evaluaci\'on de resultados}
+
+Para verificar que las predicciones del segundo escenario de uso del grafo son aceptables, \cite{Kumar2020} recomienda hacer validación cruzada (k-fold) con un conjunto de datos etiquetados —provenientes del formulario en línea— y observar el comportamiento de métricas como precisión y AUC. 
+
+\todo[inline, color=yellow!20]{Nota para el futuro: Si el rendimiento del modelo de predicción de enlaces resulta adecuado, se podría utilizar para proponer enlaces para los nodos recopilados mediante IA con el resto de la red.} 
+
+\chapter{Discusi\'on y Conclusiones}
+\section{Implicaciones y medici\'on del impacto}
+
+De manera superficial, el impacto se puede medir mediante métricas de uso de la herramienta (que quizá pueda alojarse en una página web) y por la documentación de casos de éxito de colaboraciones exitosas generadas. Lo anterior será factible si se cuenta con el apoyo institucional de beVisioneers.  
+
+De manera rigurosa, el impacto se puede evaluar analizando la evolución de la topología del grafo a lo largo del tiempo, observando si la densidad de la red aumenta o si la distancia promedio entre nodos disminuye como resultado de las nuevas conexiones.
+
+
+\section{Limitaciones y riesgos}
+Es necesario reconocer que la estrategia de recopilación de datos introduce sesgos de muestreo. Dado que el mecanismo primario es una encuesta voluntaria, se tiene una autoselección de actores que, además, se supone son alfabetizados digitalmente. Y aunque se reconoce que las probabilidades son bajas, se espera que el mapeo eventualmente represente a entidades de la periferia digital. 
+
+Adicionalmente, existe un riesgo ético de que el modelo de recomendación refuerce las desigualdades existentes; si los datos iniciales sobrerrepresentan a ciertos tipos de actores, el algoritmo podría perpetuar su centralidad y marginar aún más a los que ya están en la periferia. 
+
+Desde una perspectiva técnica, el modelo de ``snapshot'' es una limitación inherente, ya que no captura la naturaleza dinámica de las colaboraciones, que pueden formarse y disolverse con el tiempo.
+
+Por otro lado, es de alta importancia diseñar mecanismos para minimizar la probabilidad de que la información contenida en el grafo ponga en riesgo a las entidades que se buscaba ayudar. Para ello, se planea proteger el grafo con las mismas credenciales de autenticación que utilizan los usuarios de la plataforma en línea de beVisioneers.
+
+\section{Trabajo futuro}
+A mediano y largo plazo, se podrá saber si el modelo está bien implementado si se convierte en un recurso utilizado con regularidad por la comunidad de beVisioneers. Si esta organización tuviera el interés y la capacidad técnica, se podría explorar el uso de Redes Neuronales para Grafos  para capturar patrones de conexión más complejos (como los flujos de financiamiento, la difusión de innovaciones tácticas entre organizaciones o la identificación de brechas de conocimiento en la red.)
+
+\bibliographystyle{apalike}
+\bibliography{bibliografia}
+
+\end{document}
+```
