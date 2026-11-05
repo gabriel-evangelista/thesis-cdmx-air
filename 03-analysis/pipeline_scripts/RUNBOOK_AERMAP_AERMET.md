@@ -95,3 +95,27 @@ Este documento registra las reglas técnicas, decisiones metodológicas y correc
   * Gradiente de exposición industrial ($\text{PM}_{2.5}$): Razón $Q_5 / Q_1 = 7.49\times$ ($Q_1 = 0.0185\ \mu\text{g/m}^3$ vs. $Q_5 = 0.1385\ \mu\text{g/m}^3$).
   * Gradiente de desempeño relativo (Ventaja neta frente a escuelas parecidas en Nivel I): Deterioro neto entre $Q_1$ y $Q_5$ de $-3.08\text{ pp}$ en Matemáticas ($+1.57\text{ pp}$ a $-1.52\text{ pp}$) y $-2.32\text{ pp}$ en Lenguaje y Comunicación ($+1.15\text{ pp}$ a $-1.17\text{ pp}$).
 * **Siguiente iteración (Fase `EMISFACT`):** Incorporación de factores horarios de emisión por perfil operativo tecnológico y demanda eléctrica horaria.
+
+---
+
+## 8. Integración de Modulación Temporal de Emisiones (AERMOD EMISFACT MHRDOW)
+* **Objetivo:** Superar el supuesto de emisión continua uniforme 24/7 mediante factores horarios normalizados ($\bar{F} = 1.0$) en formato `MHRDOW` (864 factores = 12 meses $\times$ 3 tipos de día $\times$ 24 horas), sincronizando la física de dispersión con las inversiones térmicas nocturnas.
+* **Aislamiento de corridas:** Se creó el directorio dedicado `03-analysis/run_aermod_emisfact/` para preservar intactos los resultados previos de emisión constante (`03-analysis/run_aermod/`).
+* **Auditoría de series industriales normalizadas (8,760 horas, suma = 1.0):**
+  * `setup_emisfact_run.py` detectó empíricamente que el ciclo semanal de las curvas del paper industrial iniciaba en miércoles (Días 4 y 5 muestran caídas de 34% y 40%, correspondientes a sábado y domingo). Se corrigió el anclaje temporal a un calendario estándar con inicio en miércoles (`2014-01-01`).
+* **Despacho del Sector Eléctrico (SIN - Área Central CEN, 2019–2021):**
+  * `consolidate_cenace_cen.py` procesó 1,085 días de operación horaria del MDA de CENACE (26,037 registros).
+  * `build_cfe_emisfact.py` derivó dos perfiles:
+    1. `CFE_BASE`: Proporcional a la demanda total para unidades de ciclo combinado de carga intermedia (CT Valle de México en Acolman).
+    2. `CFE_PUNTA`: Despacho restringido exclusivamente a horas pico por encima del percentil 75% ($>7,003.53\text{ MWh}$), concentrando emisiones en 157 celdas horarias vespertino-nocturnas (factor máx $22.54\times$) para turbinas de gas (CTGs).
+* **Distribución de las 285 fuentes activas:**
+  * `CHEMICAL`: 115 fuentes
+  * `METALS`: 55 fuentes
+  * `PLAS_RUB`: 15 fuentes
+  * `FOODBEV`: 14 fuentes
+  * `CFE_PUNTA`: 16 fuentes
+  * `CFE_BASE`: 1 fuente
+  * `CONSTANTE_24_7`: 69 fuentes (incluye hornos continuos de vidrio, cemento y calderas papeleras 24/7).
+* **Corrección sintáctica en Fortran (`fix_emisfact_so.py`):**
+  * Se resolvió el error fatal `SO E140` ordenando estrictamente las tarjetas antes del cierre (`LOCATION` $\rightarrow$ `SRCPARAM` $\rightarrow$ `EMISFACT` $\rightarrow$ `SRCGROUP`) y formateando en 6 factores por línea para respetar el ancho de columna.
+  * Validación exitosa: `*** AERMOD Finishes Successfully ***` confirmada en `aermod_2017.inp` (`RUNORNOT NOT`).
