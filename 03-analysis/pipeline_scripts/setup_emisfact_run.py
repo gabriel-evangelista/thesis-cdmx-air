@@ -225,15 +225,3 @@ with open(f"{RUN_EMI_DIR}/aermod.inp", "w") as f:
 
 print(f"\n[OK] Archivos .so y .inp con EMISFACT generados en: {RUN_EMI_DIR}")
 
-"""
-
-
-python3 /Users/gabrielevangelista/thesis-cdmx-air/03-analysis/pipeline_scripts/setup_emisfact_run.py
-
-# Validar sintaxis en 1 segundo con RUNORNOT NOT
-cd /Users/gabrielevangelista/thesis-cdmx-air/03-analysis/run_aermod_emisfact
-AERMOD_BIN="/Users/gabrielevangelista/thesis-cdmx-air/03-analysis/aermod_bin/aermod.x"
-"$AERMOD_BIN"
-tail -n 20 aermod.out
-
-"""

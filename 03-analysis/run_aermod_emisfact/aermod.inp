@@ -1,16 +1,16 @@
 CO STARTING
-   TITLEONE  Modelacion Dispersion PM ZMVM con EMISFACT MHRDOW - Anio 2017
+   TITLEONE  Modelacion Dispersion PM ZMVM con EMISFACT MHRDOW - Anio 2019
    TITLETWO  285 Fuentes AP-42 + Perfiles Horarios CFE/Industria -> 3172 Escuelas
    MODELOPT  DFAULT CONC
    AVERTIME  24 ANNUAL
    POLLUTID  PM25
    FLAGPOLE  1.5
-   RUNORNOT  NOT
-   ERRORFIL  errors_emi_2017.err
+   RUNORNOT  RUN
+   ERRORFIL  errors_emi_2019.err
 CO FINISHED
 
 SO STARTING
-   INCLUDED  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermap_out/sources_emisfact_2017.so
+   INCLUDED  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermap_out/sources_emisfact_2019.so
 SO FINISHED
 
 RE STARTING
@@ -18,21 +18,21 @@ RE STARTING
 RE FINISHED
 
 ME STARTING
-   SURFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2017.sfc
-   PROFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2017.pfl
-   SURFDATA  766793  2017  AICM_CDMX
-   UAIRDATA  76679   2017  AICM_CDMX
-   SITEDATA  00000   2017  NONE
+   SURFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2019.sfc
+   PROFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2019.pfl
+   SURFDATA  766793  2019  AICM_CDMX
+   UAIRDATA  76679   2019  AICM_CDMX
+   SITEDATA  00000   2019  NONE
    PROFBASE  2230.0  METERS
 ME FINISHED
 
 OU STARTING
    RECTABLE  ALLAVE  FIRST
-   PLOTFILE  ANNUAL  ALL       plot_emi_annual_all_2017.plt
-   PLOTFILE  ANNUAL  TURBINA_  plot_emi_annual_turb_2017.plt
-   PLOTFILE  ANNUAL  FUNDICIO  plot_emi_annual_fund_2017.plt
-   PLOTFILE  ANNUAL  HORNO_VI  plot_emi_annual_vidr_2017.plt
-   PLOTFILE  ANNUAL  SECADO_Q  plot_emi_annual_quim_2017.plt
-   PLOTFILE  ANNUAL  CALDERA_  plot_emi_annual_cald_2017.plt
-   SUMMFILE  summary_emi_2017.sum
+   PLOTFILE  ANNUAL  ALL       plot_emi_annual_all_2019.plt
+   PLOTFILE  ANNUAL  TURBINA_  plot_emi_annual_turb_2019.plt
+   PLOTFILE  ANNUAL  FUNDICIO  plot_emi_annual_fund_2019.plt
+   PLOTFILE  ANNUAL  HORNO_VI  plot_emi_annual_vidr_2019.plt
+   PLOTFILE  ANNUAL  SECADO_Q  plot_emi_annual_quim_2019.plt
+   PLOTFILE  ANNUAL  CALDERA_  plot_emi_annual_cald_2019.plt
+   SUMMFILE  summary_emi_2019.sum
 OU FINISHED

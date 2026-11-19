@@ -56,3 +56,7 @@ env/
 *.rpt
 *.geojson
 *.err
+
+# 7. Archivos temporales en vivo de corridas POSTFILE 95d
+03-analysis/run_aermod_postfile_95d/aermod.inp
+03-analysis/run_aermod_postfile_95d/log_corrida_*.txt

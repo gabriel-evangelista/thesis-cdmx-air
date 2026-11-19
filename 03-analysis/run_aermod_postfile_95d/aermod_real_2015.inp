@@ -1,0 +1,34 @@
+CO STARTING
+   TITLEONE  Horaria 95d Pre/Post PLANEA - real_2015 (Emis 2015, Met 2015)
+   TITLETWO  285 Fuentes AP-42 + EMISFACT MHRDOW -> 3172 Escuelas
+   MODELOPT  DFAULT CONC
+   AVERTIME  1
+   POLLUTID  OTHER
+   FLAGPOLE  1.5
+   RUNORNOT  RUN
+   ERRORFIL  errors_real_2015.err
+CO FINISHED
+
+SO STARTING
+   INCLUDED  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermap_out/sources_emisfact_2015.so
+SO FINISHED
+
+RE STARTING
+   INCLUDED  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermap_out/receptores_elevados.rou
+RE FINISHED
+
+ME STARTING
+   SURFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2015.sfc
+   PROFFILE  /Users/gabrielevangelista/thesis-cdmx-air/02-data/processed/aermet_out/aer_2015.pfl
+   SURFDATA  766793  2015  AICM_CDMX
+   UAIRDATA  76679   2015  AICM_CDMX
+   SITEDATA  00000   2015  NONE
+   PROFBASE  2230.0  METERS
+   STARTEND  15 04 28  15 07 31
+ME FINISHED
+
+OU STARTING
+   RECTABLE  ALLAVE  FIRST
+   POSTFILE  1  ALL  PLOT  post_real_2015.plt
+   SUMMFILE  summary_real_2015.sum
+OU FINISHED
