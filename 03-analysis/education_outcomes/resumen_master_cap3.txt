@@ -1,0 +1,136 @@
+
+================================================================================
+[CELDA 1]
+================================================================================
+[OK] Panel ZMVM listo: N_todas = 9,459 | N_publicas = 7,161 | CCT = 2,964 | RECID = 2,392
+
+================================================================================
+[CELDA 2]
+================================================================================
+=== TABLA 3.1: ESPECIFICACIÓN CENTRAL (MCO Y TWFE) ===
+
+PANEL A: MATEMÁTICAS
+  (1) MCO            | Beta =   33.209    (28.577, p=0.2453) | R2w=0.0008 | N=9,459
+  (2) TWFE base      | Beta =    5.983    ( 8.050, p=0.4574) | R2w=0.0000 | N=9,439
+  (3) TWFE + met     | Beta =    5.603    ( 8.080, p=0.4881) | R2w=0.0003 | N=9,439
+  (4) TWFE + mun*yr  | Beta =    4.605    ( 9.465, p=0.6266) | R2w=0.0020 | N=9,433
+  (5) Nivel I (%)    | Beta =   -1.918    ( 2.041, p=0.3476) | R2w=0.0005 | N=9,439
+
+PANEL B: LENGUAJE
+  (1) MCO            | Beta =   66.847    (43.455, p=0.1241) | R2w=0.0030 | N=9,457
+  (2) TWFE base      | Beta =    7.554    ( 9.353, p=0.4194) | R2w=0.0001 | N=9,437
+  (3) TWFE + met     | Beta =    6.695    ( 9.417, p=0.4772) | R2w=0.0014 | N=9,437
+  (4) TWFE + mun*yr  | Beta =    2.237    (12.909, p=0.8625) | R2w=0.0025 | N=9,431
+  (5) Nivel I (%)    | Beta =   -2.113    ( 2.320, p=0.3624) | R2w=0.0011 | N=9,437
+
+================================================================================
+[CELDA 3]
+================================================================================
+=== TABLA 3.2: HETEROGENEIDAD POR RAMAS AP-42 Y MARGINACIÓN (6 COLUMNAS) ===
+
+--- MATEMÁTICAS (Cols 1-3) ---
+  [Col Ramas | N=9,439, R2w=0.0008]
+    PM25_FUNDICION_METAL  :     6.664    (  7.881, p=0.3979)
+    PM25_HORNO_VIDRIO     :    -2.096    ( 91.552, p=0.9817)
+    PM25_QUIMICA          :  -626.760*   (343.258, p=0.0680)
+    PM25_TURBINAS_CFE     :   121.023    (237.504, p=0.6104)
+    PM25_CALDERAS         :     4.860    ( 94.119, p=0.9588)
+  [Col Marg Todas    | N=9,439, R2w=0.0006]
+    PM25_ALL (base)           :     8.100    (  8.147, p=0.3202)
+    PM25 x AltaMarg (interac) :   -78.095    ( 52.500, p=0.1370)
+    Efecto TOTAL AltaMarg     :   -69.995    ( 52.143, p=0.1796)
+  [Col Marg Públicas | N=7,138, R2w=0.0004]
+    PM25_ALL (base)           :     2.947    (  5.170, p=0.5688)
+    PM25 x AltaMarg (interac) :   -56.514    ( 51.794, p=0.2754)
+    Efecto TOTAL AltaMarg     :   -53.568    ( 51.655, p=0.2999)
+
+--- LENGUAJE (Cols 4-6) ---
+  [Col Ramas | N=9,437, R2w=0.0020]
+    PM25_FUNDICION_METAL  :    17.472*   (  9.037, p=0.0533)
+    PM25_HORNO_VIDRIO     :   -39.233    ( 87.009, p=0.6521)
+    PM25_QUIMICA          :  -470.867*   (279.259, p=0.0919)
+    PM25_TURBINAS_CFE     :   -22.683    (174.341, p=0.8965)
+    PM25_CALDERAS         :   -17.312    ( 80.604, p=0.8300)
+  [Col Marg Todas    | N=9,437, R2w=0.0019]
+    PM25_ALL (base)           :     9.871    (  9.580, p=0.3030)
+    PM25 x AltaMarg (interac) :   -99.276**  ( 47.066, p=0.0350)
+    Efecto TOTAL AltaMarg     :   -89.406*   ( 46.358, p=0.0539)
+  [Col Marg Públicas | N=7,138, R2w=0.0020]
+    PM25_ALL (base)           :     2.543    (  8.856, p=0.7741)
+    PM25 x AltaMarg (interac) :   -98.299**  ( 43.271, p=0.0232)
+    Efecto TOTAL AltaMarg     :   -95.756**  ( 42.562, p=0.0246)
+
+================================================================================
+[CELDA 4]
+================================================================================
+=== TABLA 3.3 (PANEL A): ROBUSTEZ INTERACCIÓN MARGINACIÓN (AERMOD ANUAL) ===
+
+Lenguaje:
+  (1) Central (RECID)          |  -98.299**  (43.271, p=0.0232) | N=7,138
+  (2) Cluster municipio        |  -98.299*** (32.783, p=0.0035) | N=7,138
+  (3) EF municipio x año       |  -88.888**  (44.721, p=0.0470) | N=7,129
+  (4) Sin controles W          |  -98.620**  (43.028, p=0.0220) | N=7,138
+  (5) Emisión constante 24/7   | -107.208**  (46.641, p=0.0217) | N=7,138
+
+Matemáticas:
+  (1) Central (RECID)          |  -56.514    (51.794, p=0.2754) | N=7,138
+  (2) Cluster municipio        |  -56.514    (43.936, p=0.2015) | N=7,138
+  (3) EF municipio x año       |  -58.274    (57.205, p=0.3085) | N=7,129
+  (4) Sin controles W          |  -54.289    (51.274, p=0.2898) | N=7,138
+  (5) Emisión constante 24/7   |  -59.699    (55.027, p=0.2781) | N=7,138
+
+=== PRUEBAS ADICIONALES EFECTO PROMEDIO (TODAS Y PÚBLICAS) ===
+  Lenguaje    | log_PM25 (todas)      |    4.146 ( 2.836, p=0.1439)
+  Lenguaje    | arcsinh_PM25 (todas)  |    4.024 ( 2.830, p=0.1552)
+  Lenguaje    | 24/7 plana (todas)    |    6.754 (12.993, p=0.6032)
+  Lenguaje    | PM25_ALL (públicas)   |   -0.797 ( 9.419, p=0.9326)
+  Matemáticas | log_PM25 (todas)      |    3.945 ( 2.917, p=0.1764)
+  Matemáticas | arcsinh_PM25 (todas)  |    3.914 ( 2.908, p=0.1785)
+  Matemáticas | 24/7 plana (todas)    |    6.783 (11.259, p=0.5469)
+  Matemáticas | PM25_ALL (públicas)   |    1.027 ( 5.692, p=0.8569)
+
+================================================================================
+[CELDA 5]
+================================================================================
+=== TABLA 3.3 (PANEL B): ROBUSTEZ INTERACCIÓN EN SEMESTRE LECTIVO ENE-MAY ===
+  (6) Ene-May 07-19h     | LyC= -49.034**  (23.043, p=0.0335) | Mat= -12.476 (31.710, p=0.6940)
+  (7) Ene-May por turno  | LyC= -26.262    (21.915, p=0.2309) | Mat=   1.809 (32.540, p=0.9557)
+
+================================================================================
+[CELDA 6]
+================================================================================
+=== DESCRIPTIVAS EXPOSICIÓN FÍSICA HORARIA AERMOD (30 DÍAS PREVIOS, ug/m3) ===
+  Todas públicas  | Media=0.0525 | DE_tot=0.1302 | DE_within=0.0805 | P10=0.0136 | P90=0.0972 | N=7,161
+  Alta Marg.      | Media=0.0350 | DE_tot=0.0406 | DE_within=0.0185 | P10=0.0112 | P90=0.0751 | N=2,042
+  Baja/Media      | Media=0.0594 | DE_tot=0.1512 | DE_within=0.0945 | P10=0.0160 | P90=0.1043 | N=5,119
+  Corr(E_turno_30d_prev, E_turno_30d_post) = 0.985
+
+=== TABLA 3.4 DEFINITIVA — PANEL A: LENGUAJE (AERMOD FÍSICO TURNO ~ VIENTO EXÓGENO IV) ===
+  (1) Todas públicas | 30d Turno ~ IV_30D    | F1=   8.9 | RF=  -4.870**  ( 1.928, p=0.0116) | 2SLS=  -172.20*   ( 89.71, p=0.0551) | N=7,138
+  (2) Alta Marg.     | 30d Turno ~ IV_30D    | F1=   9.2 | RF= -10.700**  ( 4.823, p=0.0270) | 2SLS=  -450.38*** (163.98, p=0.0062) | N=2,011
+  (2b)Alta Marg.     | Cluster municipio     | F1=   6.5 | RF= -10.700**  ( 5.347, p=0.0491) | 2SLS=  -450.38**  (182.56, p=0.0160) | N=2,011
+  (3) Alta Marg.     | EF Mun x Año          | F1=  12.6 | RF= -18.435**  ( 7.819, p=0.0188) | 2SLS= -1098.43**  (504.96, p=0.0301) | N=1,986
+  (4) Baja/Media     | 30d Turno ~ IV_30D    | F1=   7.2 | RF=  -3.809*   ( 2.195, p=0.0831) | 2SLS=  -133.71    (101.33, p=0.1872) | N=5,096
+  (4b)Baja/Media     | EF Mun x Año          | F1=   6.6 | RF=  -3.669    ( 2.731, p=0.1795) | 2SLS=  -151.22    (145.38, p=0.2985) | N=5,076
+  (5) Alta Marg.     | 15d Turno ~ IV_15D    | F1=  15.2 | RF=  -6.931    ( 4.823, p=0.1513) | 2SLS=  -216.13    (138.63, p=0.1196) | N=2,011
+  (6) PLACEBO Todas  | 30d Post ~ IV_POST30  | F1=   1.9 | RF=  -4.906    ( 3.422, p=0.1519) | 2SLS=  -126.00    (145.21, p=0.3857) | N=7,138
+  (7) PLACEBO Vuln.  | 30d Post ~ IV_POST30  | F1=   1.1 | RF= -10.429    ( 8.186, p=0.2033) | 2SLS= -1502.58    (1805.93, p=0.4058) | N=2,011
+  (8) MECANISMO 24h  | Todas 24h ~ IV_30D    | F1=   6.0 | RF=  -4.870**  ( 1.928, p=0.0116) | 2SLS=  -378.80*   (215.01, p=0.0783) | N=7,138
+  (9) MECANISMO 24h  | Vuln. 24h ~ IV_30D    | F1=   3.9 | RF= -10.700**  ( 4.823, p=0.0270) | 2SLS=  -743.75**  (332.99, p=0.0260) | N=2,011
+
+=== TABLA 3.4 DEFINITIVA — PANEL B: MATEMÁTICAS (AERMOD FÍSICO TURNO ~ VIENTO EXÓGENO IV) ===
+  (1) Todas públicas | 30d Turno ~ IV_30D    | F1=   8.9 | RF=  -1.432    ( 2.388, p=0.5488) | 2SLS=   -50.64    ( 75.82, p=0.5043) | N=7,138
+  (2) Alta Marg.     | 30d Turno ~ IV_30D    | F1=   9.2 | RF=  -4.910    ( 3.783, p=0.1949) | 2SLS=  -206.67    (158.10, p=0.1918) | N=2,011
+  (3) Alta Marg.     | EF Mun x Año          | F1=  12.6 | RF= -15.447**  ( 6.888, p=0.0254) | 2SLS=  -920.41**  (409.93, p=0.0252) | N=1,986
+  (4) Baja/Media     | 30d Turno ~ IV_30D    | F1=   7.2 | RF=  -1.067    ( 2.538, p=0.6742) | 2SLS=   -37.47    ( 81.83, p=0.6471) | N=5,096
+  (7) PLACEBO Vuln.  | 30d Post ~ IV_POST30  | F1=   1.1 | RF=  -6.846    ( 9.236, p=0.4589) | 2SLS=  -986.41    (1752.41, p=0.5738) | N=2,011
+
+=== PRUEBAS DE MECANISMO Y PLACEBO FÍSICO CON EMISIONES CONGELADAS 2015 EN AERMOD (Z_fija) ===
+  Todas | 30d Turno ~ Z_turno_30d (LyC)      | F1= 676.9 | RF= -23.316*   (13.495, p=0.0842) | 2SLS=   -25.45    ( 15.48, p=0.1003) | N=7,138
+  Todas | 30d 24h   ~ Z_24h_30d   (LyC)      | F1= 138.3 | RF= -21.760    (33.047, p=0.5103) | 2SLS=   -20.19    ( 31.36, p=0.5199) | N=7,138
+  Todas | 30d Post  ~ Z_post_30d  (LyC)      | F1=  88.8 | RF=  29.670    (31.390, p=0.3447) | 2SLS=    15.95    ( 18.18, p=0.3805) | N=7,138
+  Vuln. | 30d Post  ~ Z_post_30d  (LyC)      | F1=   0.1 | RF= -96.199    (205.760, p=0.6403) | 2SLS= -1129.77    (5993.97, p=0.8506) | N=2,011
+
+=== TABLA 3.3 (PANEL B EXTRA): TWFE FÍSICO 30D Y 15D EN HORARIO DE TURNO (ug/m3) ===
+  TWFE físico 30d turno    | LyC int=  -54.37    ( 38.36, p=0.1566) | Mat int=   17.36 ( 45.29, p=0.7016)
+  TWFE físico 15d turno    | LyC int=  -57.51    ( 40.85, p=0.1594) | Mat int=   15.28 ( 39.61, p=0.6998)
