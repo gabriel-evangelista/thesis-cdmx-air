@@ -213,16 +213,14 @@ Una corrida es exitosa si el bloque final de aermod.out concluye con:
 
 ---
 
-## Bitácora de avances — Noviembre 2026 (Econometría Cap. 3–4 y POSTFILE 95d)
+## Bitácora de avances — Noviembre 2026 (Cierre de tesis Cap. 3–4 y POSTFILE 95d)
 
-### 2026-11-05 a 2026-11-18 — Panel PLANEA–AERMOD, TWFE, IV heterogéneo y mapa de prioridad
-- **Simulaciones anuales con `EMISFACT` (`MHRDOW`):** Se consolidó la ejecución multi-anual (`run_aermod_emisfact/run_all_years.sh`) y la validación espacial (`pipeline_scripts/plot_zmvm_2017_v2.ipynb`, `setup_emisfact_run.py`).
-- **Econometría de datos en panel (`education_outcomes/`):**
-  - `exploratorio_tesis_tablas.ipynb`: estadísticas descriptivas del panel ZMVM (2,392 inmuebles `RECID`, 9,459 observaciones CCT–Año tras excluir Valle de Toluca).
-  - `regresiones_twfe_cap3.ipynb` y `regresiones_twfe_cap3_vClaude.ipynb`: armonización de turnos de 2017, modelos MCO/TWFE base, heterogeneidad por ramas AP-42 y por grado de marginación (efecto regresivo en Lenguaje para secundarias públicas de alta marginación), batería de robustez y pruebas de Variables Instrumentales (2SLS y forma reducida) en ventanas de 30 y 15 días previos a PLANEA.
-  - **IV heterogéneo por marginación (18–19 nov):** Al desagregar la ventana de 30 días en submuestras de secundarias públicas, el efecto en Lenguaje se concentra en alta marginación (`-10.70**`, *p* = 0.027 en forma reducida; `-58.83**`, *p* = 0.042 en 2SLS; `-102.62**`, *p* = 0.036 con EF municipio × año).
-- **Focalización de política pública (`mapa_cap4.ipynb` y `figuras_tesis/`):** Identificación de 27 inmuebles escolares públicos prioritarios (alta marginación y alta exposición industrial) y generación de figuras finales de tesis.
+### 2026-11-05 a 2026-11-18 — Panel PLANEA–AERMOD, TWFE y focalización
+* Consolidación del panel en la Cuenca de México (2015, 2017 y 2019): **2,392 recintos escolares** (2,964 CCT, 9,459 observaciones) cruzados con 285 fuentes fijas activas del RETC parametrizadas con factores AP-42 y perfiles horarios `EMISFACT MHRDOW`.
+* **TWFE anual:** efecto promedio metropolitano indistinguible de cero; en secundarias públicas de alta marginación se identifica una interacción significativa en Lenguaje y Comunicación (-98.30 puntos, p = 0.023; efecto total de -95.76 puntos por ug/m3, p = 0.025), equivalente a **-13.4 puntos** por la brecha entre quintiles extremos (0.14 ug/m3), estable en cinco especificaciones de robustez.
+* **Focalización de política pública:** identificación de **27 recintos escolares prioritarios** (36 CCT, ~17,600 estudiantes; inversión inicial estimada en filtración HEPA de $2.46M MXN) y **56 establecimientos** (47 fundiciones y 9 vidrieras) que concentran el 40.58% de las emisiones.
 
-### 2026-11-19 — Lanzamiento de corridas horarias AERMOD (`POSTFILE`, ventana 95 días)
-- **Script automatizado:** `03-analysis/run_aermod_postfile_95d/lanzar_postfile_95d.py`.
-- **Diseño:** 5 corridas horarias (`AVERTIME 1`, `POSTFILE 1 ALL PLOT`, ventana `28 abr – 31 jul`) cubriendo emisiones reales ($Q_{s,t}$ para 2015, 2017, 2019) y emisiones congeladas de 2015 ($Q_{s,2015}$ con meteorología 2017 y 2019) para obtener concentraciones físicas en $\mu\text{g/m}^3$ por turno escolar (`Matutino`, `Vespertino`, `Tiempo Completo`) y una primera etapa 2SLS física sin $F$ mecánico.
+### 2026-11-19 a 2026-11-21 — Corridas horarias AERMOD (`POSTFILE 95d`) y 2SLS físico
+* Conclusión de las simulaciones horarias (`AVERTIME 1`, `POSTFILE`) para la ventana de 95 días alrededor de PLANEA (28 abr – 31 jul de 2015, 2017 y 2019), filtradas al horario lectivo exacto de cada turno escolar.
+* **Estrategia IV (30 días previos, horario de turno, instrumentada con dirección del viento y emisiones fijas de 2015):** en secundarias públicas de alta marginación, forma reducida de **-10.70 puntos por DE** (p = 0.027) y estimador 2SLS físico de **-450.38 puntos por ug/m3** (p = 0.006; IC Anderson-Rubin 95% [-932.4, -80.7]).
+* Empaquetado del kit de onboarding y runbook reproducible en `00-onboarding-aermod/` para continuidad del laboratorio.
