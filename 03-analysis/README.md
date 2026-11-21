@@ -1,40 +1,40 @@
-Guía de Compilación y Ejecución Nativa: AERMOD Suite en macOS (Apple Silicon ARM64)
+# Guía de Compilación y Ejecución Nativa: AERMOD Suite en macOS (Apple Silicon ARM64)
 
-Esta guía documenta los pasos técnicos para compilar y ejecutar de forma nativa la suite de modelación de dispersión atmosférica de la US EPA (AERMOD, AERMAP, AERMET y opcionalmente AERSURFACE) en procesadores Apple Silicon (M1/M2/M3/M4).
+Esta guía documenta los pasos técnicos para compilar y ejecutar de forma nativa la suite de modelación de dispersión atmosférica de la US EPA (**AERMOD**, **AERMAP**, **AERMET** y opcionalmente **AERSURFACE**) en procesadores Apple Silicon (M1/M2/M3/M4).
 
-Este enfoque prescinde de emuladores x86 (Rosetta 2) y de máquinas virtuales Windows, aprovechando la velocidad de punto flotante del silicio de Apple mediante optimización -O3.
+Este enfoque prescinde de emuladores x86 (Rosetta 2) y de máquinas virtuales Windows, aprovechando la velocidad de punto flotante del silicio de Apple mediante optimización `-O3`.
 
-1. Prerrequisitos del Sistema
+## 1. Prerrequisitos del Sistema
 
-Se requiere el compilador de Fortran de GNU (gfortran). La vía recomendada en entornos Conda es:
+Se requiere el compilador de Fortran de GNU (`gfortran`). La vía recomendada en entornos Conda es:
 
-
+~~~zsh
 conda install -c conda-forge fortran-compiler
+~~~
 
+Verificar la arquitectura de salida (debe responder `arm64`):
 
-Verificar la arquitectura de salida (debe responder arm64):
-
-
+~~~zsh
 gfortran -dumpmachine
+~~~
 
-
-2. Fundamentos de Compilación en macOS
+## 2. Fundamentos de Compilación en macOS
 
 El código heredado de la EPA contiene inconsistencias de tipos y sintaxis que los compiladores modernos de GCC/Clang rechazan de manera estricta. Para lograr una compilación limpia, se deben respetar dos reglas:
 
-1.     Banderas de relajación y optimización:
-    ⚬         -O3: Vectorización y optimización matemática agresiva.
-    ⚬         -w: Silencia advertencias no críticas.
-    ⚬         -fno-range-check: Evita desbordamientos por enteros heredados de 16/32 bits.
-    ⚬         -fallow-argument-mismatch: Permite discrepancias de tipos en llamadas a subrutinas Fortran heredadas.
-2.     Separación de compilación y enlazado:
-Compilar primero los módulos a código objeto (-c), compilar posteriormente el resto de las subrutinas y finalmente enlazar todos los archivos .o.
+1. **Banderas de relajación y optimización:**
+   * `-O3`: Vectorización y optimización matemática agresiva.
+   * `-w`: Silencia advertencias no críticas.
+   * `-fno-range-check`: Evita desbordamientos por enteros heredados de 16/32 bits.
+   * `-fallow-argument-mismatch`: Permite discrepancias de tipos en llamadas a subrutinas Fortran heredadas.
+2. **Separación de compilación y enlazado:**
+   Compilar primero los módulos a código objeto (`-c`), compilar posteriormente el resto de las subrutinas y finalmente enlazar todos los archivos `.o`.
 
-3. Procedimientos de Compilación
+## 3. Procedimientos de Compilación
 
-3.1. AERMOD (Motor de Dispersión)
+### 3.1. AERMOD (Motor de Dispersión)
 
-
+~~~zsh
 # 1. Descarga y extracción
 curl -O https://gaftp.epa.gov/Air/aqmg/SCRAM/models/dispersion/aermod/aermod_source.zip
 unzip aermod_source.zip -d src_aermod
@@ -59,14 +59,13 @@ gfortran -O3 -w -o aermod.x *.o
 chmod +x aermod.x
 mv aermod.x ../../aermod_bin/
 cd ../..
+~~~
 
+### 3.2. AERMAP (Procesador de Terreno)
 
-3.2. AERMAP (Procesador de Terreno)
+> **Parche Obligatorio en el Código Fuente:** En la línea 118 de `sub_recelv.f`, el código original de la EPA omite una coma en un descriptor de formato de salida, lo que detiene la ejecución durante el procesamiento de receptores (`Fortran runtime error: Missing comma between descriptors`).
 
-    Parche Obligatorio en el Código Fuente:
-En la línea 118 de sub_recelv.f, el código original de la EPA omite una coma en un descriptor de formato de salida, lo que detiene la ejecución durante el procesamiento de receptores (Fortran runtime error: Missing comma between descriptors).
-
-
+~~~zsh
 # 1. Descarga y extracción
 curl -O https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_source.zip
 unzip aermap_source.zip -d src_aermap
@@ -96,13 +95,13 @@ gfortran -O3 -w -o aermap.x *.o
 chmod +x aermap.x
 mv aermap.x ../../aermod_bin/
 cd ../..
+~~~
 
+### 3.3. AERMET (Procesador Meteorológico)
 
-3.3. AERMET (Procesador Meteorológico)
+AERMET está programado en Fortran 90 (`.f90`) y exige una resolución jerárquica estricta de sus módulos para evitar errores de símbolos no definidos.
 
-AERMET está programado en Fortran 90 (.f90) y exige una resolución jerárquica estricta de sus módulos para evitar errores de símbolos no definidos.
-
-
+~~~zsh
 # 1. Descarga y extracción
 curl -O https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip
 unzip aermet_source.zip -d src_aermet
@@ -133,13 +132,13 @@ gfortran -O3 -w -o aermet.x *.o
 chmod +x aermet.x
 mv aermet.x ../../aermod_bin/
 cd ../..
+~~~
 
+### 3.4. AERSURFACE (Opcional - Uso de Suelo NLCD)
 
-3.4. AERSURFACE (Opcional - Uso de Suelo NLCD)
+> **Nota para México / CDMX:** AERSURFACE procesa exclusivamente bases de datos NLCD de EE. UU. Para cuencas mexicanas, los parámetros superficiales (albedo, relación de Bowen y rugosidad superficial $z_0$) se derivan de INEGI y se declaran directamente en `aermet.inp` mediante `SITE_CHAR`.
 
-    Nota para México / CDMX: AERSURFACE procesa exclusivamente bases de datos NLCD de EE. UU. Para cuencas mexicanas, los parámetros superficiales (albedo, relación de Bowen y rugosidad superficial $z_0$) se derivan de INEGI y se declaran directamente en aermet.inp mediante SITE_CHAR.
-
-
+~~~zsh
 # 1. Descarga y extracción
 curl -O https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aersurface/aersurface_source.zip
 unzip aersurface_source.zip -d src_aersurface
@@ -164,48 +163,46 @@ gfortran -O3 -w -o aersurface.x *.o
 chmod +x aersurface.x
 mv aersurface.x ../../aermod_bin/
 cd ../..
+~~~
 
+## 4. Consideraciones Críticas de Ejecución
 
-4. Consideraciones Críticas de Ejecución
+### 4.1. Sintaxis de Rutas (Windows vs. Unix)
 
-4.1. Sintaxis de Rutas (Windows vs. Unix)
+Los archivos de control (`.inp`) elaborados en Windows suelen contener rutas relativas con diagonales invertidas (`..\AERMET\Parish2020.SFC`). En macOS/Linux deben sustituirse estrictamente por diagonales normales:
 
-Los archivos de control (.inp) elaborados en Windows suelen contener rutas relativas con diagonales invertidas (..\AERMET\Parish2020.SFC). En macOS/Linux deben sustituirse estrictamente por diagonales normales:
-
-
+~~~text
 ME STARTING
    SURFFILE  ../AERMET/Parish2020.SFC
    PROFFILE  ../AERMET/Parish2020.PFL
+~~~
 
+### 4.2. Declaración de `LOCATION` en AERMET
 
-4.2. Declaración de LOCATION en AERMET
+La sintaxis de la tarjeta `LOCATION` requiere un orden estricto de parámetros posicionales:
 
-La sintaxis de la tarjeta LOCATION requiere un orden estricto de parámetros posicionales:
-
-
+~~~text
 LOCATION [STATION_ID] [LATITUD] [LONGITUD] [TIME_ZONE_ADJ] [ELEVATION]
+~~~
 
+Si se omite el huso horario, el compilador interpretará la elevación como el ajuste horario, arrojando el error: `EXCEEDS 12 HOUR ADJUSTMENT FOR TIME ZONE ADJUSTMENT`. Ejemplo para huso horario Centro (`CST = 6`) y elevación de 29 m:
 
-Si se omite el huso horario, el compilador interpretará la elevación como el ajuste horario, arrojando el error:
-EXCEEDS 12 HOUR ADJUSTMENT FOR TIME ZONE ADJUSTMENT.
-Ejemplo para huso horario Centro (CST = 6) y elevación de 29 m:
-
-
+~~~text
 LOCATION 12960 29.97N 95.35W 6 29
+~~~
 
-
-4.3. Diagnóstico en ERRORS.OUT
+### 4.3. Diagnóstico en `ERRORS.OUT`
 
 AERMOD clasifica sus salidas por severidad en la primera columna:
 
-⚬     E (Fatal Error): Interrumpe la simulación.
-⚬     W (Warning): Advertencia regulatoria o de consistencia (e.g., W530 por discrepancia de ID de estación). No detiene el cómputo.
-⚬     I (Informational): Eventos operacionales de rutina (e.g., I440 para horas de viento en calma y I460 para horas sin registro).
+* `E` (**Fatal Error**): Interrumpe la simulación.
+* `W` (**Warning**): Advertencia regulatoria o de consistencia (e.g., `W530` por discrepancia de ID de estación). No detiene el cómputo.
+* `I` (**Informational**): Eventos operacionales de rutina (e.g., `I440` para horas de viento en calma y `I460` para horas sin registro).
 
-Una corrida es exitosa si el bloque final de aermod.out concluye con:
+Una corrida es exitosa si el bloque final de `aermod.out` concluye con:
 
-
+~~~text
 ************************************
 *** AERMOD Finishes Successfully ***
 ************************************
-```
+~~~
