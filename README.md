@@ -10,7 +10,7 @@ A partir de las concentraciones simuladas —tanto en promedio anual por rama te
 
 ## Arquitectura Metodológica
 
-![Arquitectura de integración de datos, modelación física (AERMOD) e identificación econométrica](figuras_tesis/fig_cap2_pipeline_arquitectura.png)
+![Arquitectura de integración de datos, modelación física (AERMOD) e identificación econométrica](figuras_tesis/finales/fig_cap2_pipeline_arquitectura.png)
 
 ## Estructura del Repositorio
 
