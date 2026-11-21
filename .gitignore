@@ -21,6 +21,7 @@ env/
 02-data/**
 !02-data/**/
 !02-data/**/.gitkeep
+!02-data/README.md
 03-analysis/tutorial_wisconsin/
 03-analysis/run_aermet_*/
 01-literature-tesina/*.pdf

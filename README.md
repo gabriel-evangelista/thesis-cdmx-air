@@ -39,3 +39,7 @@ A partir de las concentraciones simuladas —tanto en promedio anual por rama te
 ## Reproducibilidad y Uso en el Laboratorio
 
 Si llegas a este repositorio para replicar corridas de **AERMOD** en otro proyecto del laboratorio (sin licencias comerciales, en macOS Apple Silicon o Linux), empieza directamente en [`00-onboarding-aermod/README.md`](00-onboarding-aermod/README.md).
+
+## Acceso a los Datos
+
+Los insumos crudos y procesados (`02-data/`) no se versionan en Git por su tamaño, pero están disponibles bajo solicitud en Google Drive. Consulta las instrucciones y el enlace de solicitud en [`02-data/README.md`](02-data/README.md).
