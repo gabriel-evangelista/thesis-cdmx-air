@@ -3,6 +3,8 @@
 Flujo reproducible de código abierto para modelar dispersión atmosférica hiperlocal de PM2.5 (a 1.5 m de altura) desde fuentes fijas industriales en macOS (Apple Silicon / Intel) y Linux, sin licencias comerciales.
 
 ## Contenido de esta carpeta
+* `RUNBOOK.md` — Runbook operativo completo del pipeline AERMOD (EMISFACT MHRDOW, POSTFILE y control de calidad).
+* `RUNBOOK.md` — Runbook operativo completo del pipeline AERMOD (EMISFACT MHRDOW, POSTFILE y control de calidad).
 * `install_aermod.sh` — Script de compilación nativa de AERMOD `v24142` con `gfortran`.
 * `environment.yml` — Entorno Conda (`aermod-lab`) para preprocesamiento, GIS y econometría (`pyfixest`).
 * `toy_case/` — Caso de prueba autocontenido (5 fuentes, 20 receptores, 7 días) que corre en ~2 segundos.

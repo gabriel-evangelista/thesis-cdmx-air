@@ -1,0 +1,54 @@
+  
+    ************ Error Message List *************
+  
+    PW     --- Pathway                           
+    Code   --- Error Type + Error Code           
+    L#     --- The Line Number Where Error Occurs
+    ModNam --- Module Name In Which Error Occurs 
+    Hints  --- Hints For The Possible Solution   
+    *********************************************
+  
+PW CODE    L#      MODNAM                       ERROR MESSAGES                      HINTS
+-- ---- ------- ------------- -------------------------------------------------- ------------
+  
+SO W320       8        PPARM: Input Parameter May Be Out-of-Range for Parameter            QS
+RE W228       2       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228       3       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228       4       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228       5       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228       6       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228       7       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228       8       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228       9       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      10       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      11       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      12       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      13       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      14       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      15       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      16       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      17       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      18       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      19       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      20       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+RE W228      21       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+MX I440       2       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010102
+MX I440       3       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010103
+MX I440       4       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010104
+MX I440       5       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010105
+MX I440       7       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010107
+MX I440      10       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010110
+MX I440      22       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010122
+MX I440      23       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010123
+CN W732      24         AVER: 24-hr avg, < 18 hours of data, calms policy used.    2017010124
+MX I440      28       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010204
+MX I440      29       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010205
+MX I440      54       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010306
+MX I440      99       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010503
+MX I460     105  SET_METDATA: Missing Hour Identified in Meteor. Data File at      2017010509
+MX I440     122       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010602
+MX I440     123       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010603
+MX I440     124       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010604
+MX I440     127       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010607
+MX I460     136  SET_METDATA: Missing Hour Identified in Meteor. Data File at      2017010616
+MX I440     144       CHKCLM: Calm Hour Identified in Meteorology Data File at     2017010624

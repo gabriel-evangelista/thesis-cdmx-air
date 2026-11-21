@@ -1,0 +1,208 @@
+ *** AERMOD - VERSION 26135  ***   ***  Toy Case Laboratorio - Verificacion de Entorno AERMOD               ***        11/20/26
+ *** AERMET - VERSION  26135 ***   ***  5 fuentes x 20 receptores x 7 dias (Ene 2017)                       ***        23:06:01
+                                                                                                                       PAGE   1
+ *** MODELOPTs:    RegDFAULT  CONC  ELEV  FLGPOL  RURAL
+
+                                            ***     MODEL SETUP OPTIONS SUMMARY       ***
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ ** Model Options Selected:
+      * Model Uses Regulatory DEFAULT Options
+      * Model Is Setup For Calculation of Average CONCentration Values.
+      * NO GAS DEPOSITION Data Provided.
+      * NO PARTICLE DEPOSITION Data Provided.
+      * Model Uses NO DRY DEPLETION. DDPLETE  =  F
+      * Model Uses NO WET DEPLETION. WETDPLT  =  F
+      * Stack-tip Downwash.
+      * Model Accounts for ELEVated Terrain Effects.
+      * Use Calms Processing Routine.
+      * Use Missing Data Processing Routine.
+      * No Exponential Decay.
+      * Model Uses RURAL Dispersion Only.
+      * CCVR_Sub - Meteorological data includes CCVR substitutions
+      * TEMP_Sub - Meteorological data includes TEMP substitutions
+      * Model Accepts FLAGPOLE Receptor . Heights. 
+      * The User Specified a Pollutant Type of: OTHER   
+  
+ **Model Calculates  1 Short Term Average(s) of:  24-HR
+  
+ **This Run Includes:      5 Source(s);       1 Source Group(s); and      20 Receptor(s)
+
+                with:      5 POINT(s), including
+                           0 POINTCAP(s) and      0 POINTHOR(s)
+                 and:      0 VOLUME source(s)
+                 and:      0 AREA type source(s)
+                 and:      0 LINE source(s)
+                 and:      0 RLINE/RLINEXT source(s)
+                 and:      0 OPENPIT source(s)
+                 and:      0 BUOYANT LINE source(s) with a total of     0 line(s)
+                 and:      0 SWPOINT source(s)
+
+  
+ **Model Set To Continue RUNning After the Setup Testing.
+
+ **The AERMET Input Meteorological Data Version Date:  26135
+  
+ **Output Options Selected:
+          Model Outputs Tables of Highest Short Term Values by Receptor (RECTABLE Keyword)
+          Model Outputs External File(s) of Concurrent Values for Postprocessing (POSTFILE Keyword)
+          Model Outputs External File(s) of High Values for Plotting (PLOTFILE Keyword)
+          Model Outputs Separate Summary File of High Ranked Values (SUMMFILE Keyword)
+  
+ **NOTE:  The Following Flags May Appear Following CONC Values:  c for Calm Hours
+                                                                 m for Missing Hours
+                                                                 b for Both Calm and Missing Hours
+  
+ **Misc. Inputs:  Base Elev. for Pot. Temp. Profile (m MSL) =  2230.00 ;  Decay Coef. =    0.000     ;  Rot. Angle =     0.0
+                  Emission Units = GRAMS/SEC                                ;  Emission Rate Unit Factor =   0.10000E+07
+                  Output Units   = MICROGRAMS/M**3                         
+  
+ **Approximate Storage Requirements of Model =      3.5 MB of RAM.
+  
+ **Input Runstream File:          aermod.inp                                                                                      
+ **Output Print File:             aermod.out                                                                                      
+
+ **Detailed Error/Message File:   toy_errors.err                                                                                  
+ **File for Summary of Results:   toy_summary.sum                                                                                 
+ *** AERMOD - VERSION 26135  ***   ***  Toy Case Laboratorio - Verificacion de Entorno AERMOD               ***        11/20/26
+ *** AERMET - VERSION  26135 ***   ***  5 fuentes x 20 receptores x 7 dias (Ene 2017)                       ***        23:06:01
+                                                                                                                       PAGE   2
+ *** MODELOPTs:    RegDFAULT  CONC  ELEV  FLGPOL  RURAL
+
+                                            *** METEOROLOGICAL DAYS SELECTED FOR PROCESSING ***
+                                                               (1=YES; 0=NO)
+
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1
+
+                NOTE:  METEOROLOGICAL DATA ACTUALLY PROCESSED WILL ALSO DEPEND ON WHAT IS INCLUDED IN THE DATA FILE.
+
+
+
+                                  *** UPPER BOUND OF FIRST THROUGH FIFTH WIND SPEED CATEGORIES ***
+                                                            (METERS/SEC)
+
+                                                 1.54,   3.09,   5.14,   8.23,  10.80,
+ *** AERMOD - VERSION 26135  ***   ***  Toy Case Laboratorio - Verificacion de Entorno AERMOD               ***        11/20/26
+ *** AERMET - VERSION  26135 ***   ***  5 fuentes x 20 receptores x 7 dias (Ene 2017)                       ***        23:06:01
+                                                                                                                       PAGE   3
+ *** MODELOPTs:    RegDFAULT  CONC  ELEV  FLGPOL  RURAL
+
+                                    *** UP TO THE FIRST 24 HOURS OF METEOROLOGICAL DATA ***
+
+   Surface file:   toy_met.sfc                                                                        Met Version:  26135
+   Profile file:   toy_met.pfl                                                                     
+   Surface format: FREE                                                                                                     
+   Profile format: FREE                                                                                                     
+   Surface station no.:   766793                  Upper air station no.:    76679
+                  Name: AICM_CDMX                                  Name: AICM_CDMX                               
+                  Year:   2017                                     Year:   2017
+
+ First 24 hours of scalar data
+ YR MO DY JDY HR     H0     U*     W*  DT/DZ ZICNV ZIMCH  M-O LEN    Z0  BOWEN ALBEDO  REF WS   WD     HT  REF TA     HT
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ ** 01 01   1 01  -19.4  0.223 -9.000 -9.000 -999.  253.     40.3  0.80   1.80   1.00    2.10  241.   10.0  286.1    2.0
+ 17 01 01   1 02 -999.0 -9.000 -9.000 -9.000 -999. -999. -99999.0  0.47   1.80   1.00    0.00    0.   10.0  286.1    2.0
+ 17 01 01   1 03 -999.0 -9.000 -9.000 -9.000 -999. -999. -99999.0  0.47   1.80   1.00    0.00    0.   10.0  286.1    2.0
+ 17 01 01   1 04 -999.0 -9.000 -9.000 -9.000 -999. -999. -99999.0  0.47   1.80   1.00    0.00    0.   10.0  286.1    2.0
+ 17 01 01   1 05 -999.0 -9.000 -9.000 -9.000 -999. -999. -99999.0  0.47   1.80   1.00    0.00    0.   10.0  285.1    2.0
+ 17 01 01   1 06  -13.0  0.159 -9.000 -9.000 -999.  152.     21.4  0.15   1.80   1.00    2.60   82.   10.0  285.1    2.0
+ 17 01 01   1 07 -999.0 -9.000 -9.000 -9.000 -999. -999. -99999.0  0.47   1.80   1.00    0.00    0.   10.0  285.1    2.0
+ 17 01 01   1 08   -3.2  0.071 -9.000 -9.000 -999.   46.      8.1  0.15   1.80   0.60    1.50  103.   10.0  284.1    2.0
+ 17 01 01   1 09   47.2  0.243  0.717  0.011  217.  287.    -21.1  0.15   1.80   0.30    2.10   67.   10.0  285.1    2.0
+ 17 01 01   1 10  131.7 -9.000 -9.000 -9.000  423. -999. -99999.0  0.47   1.80   0.22    0.00    0.   10.0  289.1    2.0
+ 17 01 01   1 11  189.5  0.426  1.598  0.010  608.  667.    -28.7  0.80   1.80   0.19    2.10  254.   10.0  290.1    2.0
+ 17 01 01   1 12  231.8  0.329  1.871  0.010  786.  459.    -10.6  0.15   1.80   0.19    2.60  106.   10.0  292.1    2.0
+ 17 01 01   1 13  254.5  0.331  2.040  0.009  941.  458.    -10.1  0.15   1.80   0.19    2.60  103.   10.0  293.1    2.0
+ 17 01 01   1 14  237.1  0.505  2.086  0.009 1079.  862.    -38.3  0.80   1.80   0.19    2.60  229.   10.0  295.1    2.0
+ 17 01 01   1 15  105.0  0.208  1.629  0.009 1141.  339.     -5.9  0.15   1.80   0.19    1.50  142.   10.0  294.1    2.0
+ 17 01 01   1 16   77.7  0.200  1.479  0.009 1170.  217.     -7.3  0.15   1.80   0.21    1.50  104.   10.0  294.1    2.0
+ 17 01 01   1 17   39.8  0.458  1.188  0.009 1186.  744.   -169.9  0.15   1.80   0.26    4.60  161.   10.0  293.1    2.0
+ 17 01 01   1 18   -5.6  0.725 -9.000 -9.000 -999. 1482.   4755.6  0.80   1.80   0.46    4.60  187.   10.0  292.1    2.0
+ 17 01 01   1 19  -26.5  0.355 -9.000 -9.000 -999.  681.    118.7  0.15   1.80   1.00    4.10  174.   10.0  291.1    2.0
+ 17 01 01   1 20  -28.7  0.351 -9.000 -9.000 -999.  504.    106.1  0.15   1.80   1.00    4.10  167.   10.0  290.1    2.0
+ 17 01 01   1 21  -19.8  0.233 -9.000 -9.000 -999.  278.     44.4  0.15   1.80   1.00    3.10  110.   10.0  289.1    2.0
+ 17 01 01   1 22 -999.0 -9.000 -9.000 -9.000 -999. -999. -99999.0  0.47   1.80   1.00    0.00    0.   10.0  288.1    2.0
+ 17 01 01   1 23 -999.0 -9.000 -9.000 -9.000 -999. -999. -99999.0  0.47   1.80   1.00    0.00    0.   10.0  287.1    2.0
+ 17 01 01   1 24   -3.6  0.071 -9.000 -9.000 -999.   46.      7.0  0.15   1.80   1.00    1.50  140.   10.0  287.1    2.0
+
+
+ First hour of profile data
+ YR MO DY HR HEIGHT F  WDIR    WSPD AMB_TMP sigmaA  sigmaW  sigmaV
+ ** 01 01 01   10.0 1  241.    2.10   286.2   99.0  -99.00  -99.00
+
+ F indicates top of profile (=1) or below (=0)
+ *** AERMOD - VERSION 26135  ***   ***  Toy Case Laboratorio - Verificacion de Entorno AERMOD               ***        11/20/26
+ *** AERMET - VERSION  26135 ***   ***  5 fuentes x 20 receptores x 7 dias (Ene 2017)                       ***        23:06:01
+                                                                                                                       PAGE   4
+ *** MODELOPTs:    RegDFAULT  CONC  ELEV  FLGPOL  RURAL
+
+                                                *** THE SUMMARY OF HIGHEST 24-HR RESULTS ***
+
+
+                                    ** CONC OF OTHER    IN MICROGRAMS/M**3                          **
+
+                                                      DATE                                                                    NETWORK
+GROUP ID                          AVERAGE CONC     (YYMMDDHH)             RECEPTOR  (XR, YR, ZELEV, ZHILL, ZFLAG)    OF TYPE  GRID-ID
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  
+ALL      HIGH   1ST HIGH VALUE IS       0.02420c ON 17010224: AT (  489483.46,  2156899.74,  2244.42,  2744.00,    1.50)  DC          
+
+
+ *** RECEPTOR TYPES:  GC = GRIDCART
+                      GP = GRIDPOLR
+                      DC = DISCCART
+                      DP = DISCPOLR
+ *** AERMOD - VERSION 26135  ***   ***  Toy Case Laboratorio - Verificacion de Entorno AERMOD               ***        11/20/26
+ *** AERMET - VERSION  26135 ***   ***  5 fuentes x 20 receptores x 7 dias (Ene 2017)                       ***        23:06:01
+                                                                                                                       PAGE   5
+ *** MODELOPTs:    RegDFAULT  CONC  ELEV  FLGPOL  RURAL
+
+ *** Message Summary : AERMOD Model Execution ***
+
+  --------- Summary of Total Messages --------
+  
+ A Total of            0 Fatal Error Message(s)
+ A Total of           22 Warning Message(s)
+ A Total of           19 Informational Message(s)
+
+ A Total of          168 Hours Were Processed
+
+ A Total of           17 Calm Hours Identified
+
+ A Total of            2 Missing Hours Identified (  1.19 Percent)
+  
+  
+    ******** FATAL ERROR MESSAGES ******** 
+               ***  NONE  ***         
+  
+  
+    ********   WARNING MESSAGES   ******** 
+ SO W320       8        PPARM: Input Parameter May Be Out-of-Range for Parameter            QS
+ RE W228       2       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228       3       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228       4       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228       5       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228       6       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228       7       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228       8       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228       9       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      10       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      11       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      12       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      13       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      14       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      15       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      16       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      17       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      18       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      19       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      20       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ RE W228      21       DISCAR: Default(s) Used for Missing Parameters on Keyword      DISCCART
+ CN W732      24         AVER: 24-hr avg, < 18 hours of data, calms policy used.    2017010124

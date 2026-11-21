@@ -17,8 +17,10 @@ __pycache__/
 venv/
 env/
 
-# 3. Directorios de Datos y Tutoriales Masivos (NUNCA subir a Git)
-02-data/
+# 3. Directorios de Datos (ignorar archivos, conservar estructura con .gitkeep)
+02-data/**
+!02-data/**/
+!02-data/**/.gitkeep
 03-analysis/tutorial_wisconsin/
 03-analysis/run_aermet_*/
 01-literature-tesina/*.pdf
@@ -45,6 +47,7 @@ env/
 *.out
 *.msg
 *.plt
+*.pst
 *.log
 *.rou
 *.sou
@@ -60,3 +63,6 @@ env/
 # 7. Archivos temporales en vivo de corridas POSTFILE 95d
 03-analysis/run_aermod_postfile_95d/aermod.inp
 03-analysis/run_aermod_postfile_95d/log_corrida_*.txt
+
+# 8. Excepción: conservar completo el Toy Case de onboarding (~256 KB)
+!00-onboarding-aermod/toy_case/*
