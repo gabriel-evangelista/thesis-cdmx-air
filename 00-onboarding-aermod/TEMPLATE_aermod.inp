@@ -1,0 +1,50 @@
+** =========================================================================
+** PLANTILLA MAESTRA DE CONTROL PARA AERMOD (v24142)
+** Reglas:
+**  1) Los bloques DEBEN ir en este orden: CO -> SO -> RE -> ME -> OU.
+**  2) Evitar lineas de mas de 132 caracteres (limite Fortran).
+**  3) Validar siempre en 1 segundo cambiando RUNORNOT RUN -> RUNORNOT NOT.
+** =========================================================================
+
+CO STARTING
+   TITLEONE  [EDITAR] Nombre del proyecto y anio
+   TITLETWO  [EDITAR] Descripcion corta (N fuentes -> M receptores)
+   MODELOPT  DFAULT CONC           ** FIJO: Opciones regulatorias EPA + concentracion
+   AVERTIME  24 ANNUAL             ** EDITAR: 1 (horario), 24 (diario), ANNUAL o PERIOD
+   POLLUTID  PM25                  ** EDITAR: Usar OTHER si corres < 1 anio o 1h/PERIOD
+   FLAGPOLE  1.5                   ** FIJO: Altura de respiracion humana (metros)
+   RUNORNOT  NOT                   ** CAMBIAR A 'RUN' cuando pase la prueba de sintaxis
+   ERRORFIL  errors_YYYY.err       ** Archivo donde se guardan warnings y errores
+CO FINISHED
+
+SO STARTING
+** NOTA CRITICA: Dentro del archivo .so el orden obligatorio es:
+**   1. LOCATION  ->  2. SRCPARAM  ->  3. EMISFACT (opcional, max 6 cols/linea)  ->  4. SRCGROUP
+   INCLUDED  /ruta/absoluta/a/sources_YYYY.so
+SO FINISHED
+
+RE STARTING
+** Receptores con elevacion (Z_elev, Z_hill) generados por AERMAP en UTM
+   INCLUDED  /ruta/absoluta/a/receptores_elevados.rou
+RE FINISHED
+
+ME STARTING
+   SURFFILE  /ruta/absoluta/a/aer_YYYY.sfc
+   PROFFILE  /ruta/absoluta/a/aer_YYYY.pfl
+   SURFDATA  766793  2017  ESTACION_SUP   ** [EDITAR] ID estacion superficie + anio
+   UAIRDATA  76679   2017  ESTACION_RAD   ** [EDITAR] ID radiosondeo WMO + anio
+   SITEDATA  00000   2017  NONE
+   PROFBASE  2230.0  METERS               ** [EDITAR] Altitud de la estacion (msnm)
+** OPCIONAL (muy recomendado si usas POSTFILE): acotar ventana temporal
+** STARTEND  17 03 01  17 06 03           ** Formato: YY MM DD (inicio)  YY MM DD (fin)
+ME FINISHED
+
+OU STARTING
+   RECTABLE  ALLAVE  FIRST
+** Opcion 1 (Ligera, ~335 KB): Promedio anual por receptor
+   PLOTFILE  ANNUAL  ALL   plot_annual_all_YYYY.plt
+** Opcion 2 (Alta resolucion, varios GB): Serie paso a paso por receptor y fecha
+** POSTFILE  24      ALL   PLOT   post_24h_all_YYYY.pst
+** POSTFILE  1       ALL   UNFORM post_1h_all_YYYY.bin  ** Usar UNFORM (binario) para 1h
+   SUMMFILE  summary_YYYY.sum
+OU FINISHED

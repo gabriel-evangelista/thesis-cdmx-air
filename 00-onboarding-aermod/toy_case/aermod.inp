@@ -1,0 +1,34 @@
+CO STARTING
+   TITLEONE  Toy Case Laboratorio - Verificacion de Entorno AERMOD
+   TITLETWO  5 fuentes x 20 receptores x 7 dias (Ene 2017)
+   MODELOPT  DFAULT CONC
+   AVERTIME  24
+   POLLUTID  OTHER
+   FLAGPOLE  1.5
+   RUNORNOT  RUN
+   ERRORFIL  toy_errors.err
+CO FINISHED
+
+SO STARTING
+   INCLUDED  toy_sources.so
+SO FINISHED
+
+RE STARTING
+   INCLUDED  toy_receptors.rou
+RE FINISHED
+
+ME STARTING
+   SURFFILE  toy_met.sfc
+   PROFFILE  toy_met.pfl
+   SURFDATA  766793  2017  AICM_CDMX
+   UAIRDATA  76679   2017  AICM_CDMX
+   SITEDATA  00000   2017  NONE
+   PROFBASE  2230.0  METERS
+ME FINISHED
+
+OU STARTING
+   RECTABLE  ALLAVE  FIRST
+   PLOTFILE  24      ALL   FIRST toy_plot_24h.plt
+   POSTFILE  24      ALL   PLOT  toy_post_24h.pst
+   SUMMFILE  toy_summary.sum
+OU FINISHED

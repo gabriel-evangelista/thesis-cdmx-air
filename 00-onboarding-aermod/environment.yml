@@ -1,0 +1,23 @@
+name: aermod-lab
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - pyarrow
+  - geopandas
+  - shapely
+  - pyproj
+  - rasterio
+  - matplotlib
+  - seaborn
+  - folium
+  - jupyterlab
+  - ipykernel
+  - pip
+  - pip:
+      - pyfixest
+      - siphon
